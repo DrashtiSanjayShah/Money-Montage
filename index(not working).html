@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Menu Test</title>
+    <style>
+      .hamburger-menu {
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+      .hamburger-menu .bar {
+        width: 30px;
+        height: 3px;
+        background-color: black;
+        margin: 6px 0;
+        transition: 0.4s;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100%;
+        background-color: white;
+        box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        overflow-y: auto;
+        transition: transform 0.3s ease;
+        transform: translateX(100%);
+      }
+      .mobile-menu.show {
+        display: block;
+        transform: translateX(0);
+      }
+    </style>
+</head>
+<body>
+  <div class="hamburger-menu" id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var hamburgerMenu = document.getElementById('hamburger-menu');
+      var mobileMenu = document.getElementById('mobile-menu');
+  
+      if (hamburgerMenu && mobileMenu) {
+        console.log('Hamburger menu and mobile menu found');
+        hamburgerMenu.addEventListener('click', function() {
+          console.log('Hamburger menu clicked');
+          mobileMenu.classList.toggle('show');
+        });
+      } else {
+        console.log('Hamburger menu or mobile menu not found');
+      }
+    });
+  </script>
+</body>
+</html>
