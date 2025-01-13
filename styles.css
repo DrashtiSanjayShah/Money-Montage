@@ -339,8 +339,10 @@ p {
 
 /* footer */
 
+/* footer */
 .footer {
-  background-color: #0a4e37; /* Deep blue background for a professional look */
+  height: 29rem;
+  background-color: #003366; /* Deep blue background for a professional look */
   color: #ffffff; /* White text for contrast */
   padding: 3rem 0;
   font-size: 1rem;
@@ -361,13 +363,15 @@ p {
 }
 
 .footer-links,
-.footer-contact {
+.footer-contact,
+.footer-social {
   flex: 1;
   margin: 0 1rem;
 }
 
 .footer-links h3,
-.footer-contact h3{
+.footer-contact h3,
+.footer-social h3 {
   margin-bottom: 1.5rem;
   font-size: 1.3rem;
   font-weight: 600; /* Bolder headings for better emphasis */
@@ -404,30 +408,45 @@ p {
   transition: color 0.3s ease;
 }
 
+.footer-contact a:hover {
+  color: #ffffff; /* White color on hover for contrast */
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem; /* Increased gap for better spacing */
+}
+
+.footer-social .social-icon img {
+  width: 30px; /* Larger icons for better visibility */
+  height: 30px;
+  transition: opacity 0.3s ease; /* Smooth transition effect on hover */
+}
+
+.footer-social .social-icon img:hover {
+  opacity: 0.8;
+}
 
 .footer-bottom {
   text-align: center;
   padding: 1rem 0;
 }
 
-.footer-bottom a {
-  text-decoration: none;
-  margin: 0;
-  color: white;
+.footer-bottom p {
+  font-size: 1.2rem;
 }
 
 /* New footer credit section */
 .credit {
-  text-align: left;
-  padding: 1rem 0;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
   color: pink;
-  font-size: 1rem;
-  margin-top: -1rem;
 }
 
 .credit a {
-  text-decoration: none;
   color: pink;
+  text-decoration: none;
 }
 
 /* hero section for all pages except index.html */
@@ -1121,5 +1140,8 @@ p {
   .footer-contact h3 {
     margin-top: -1rem;
     font-weight: lighter;
+  }
+  .footer-social {
+    gap: 1.5rem; /* Increased gap on smaller screens for better spacing */
   }
 }
