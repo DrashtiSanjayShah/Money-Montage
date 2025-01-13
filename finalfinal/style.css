@@ -42,30 +42,42 @@ body {
     opacity: 1;
   }
 }
-
+.navbar{
+  box-shadow: rgba(0, 0, 0, 0.3);
+}
 /* header starts */
-header {
-  padding: 2em;
+header{
+  position: fixed;
   height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #logo {
   max-height: 6rem;
+  position: fixed;
+  top: 0;
+  background: transparent;
 }
 
 header a {
   text-decoration: none;
 }
 
-.nav-menu {
-  display: flex;
-  justify-content: flex-end;
-  flex-grow: 1;
-  margin-top: -1rem;
+  .nav-menu {
+    position: fixed; 
+    z-index: 100; /* Ensure it's above other elements */
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    right: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -79,8 +91,8 @@ nav ul a {
 }
 
 nav ul li {
-  margin-right: 20px;
-  font-size: 17px;
+  margin-right: 1.5rem;
+  font-size: 19px;
   text-transform: uppercase;
 }
 
@@ -94,6 +106,12 @@ nav a:hover {
   font-size: 20px;
   font-weight: 700;
 }
+
+.nav-link.active {
+  color: orange; /* Change this to your desired active color */
+  font-weight: bold; /* Optional: Make the active link bold */
+}
+
 
 /* Hamburger menu styles */
 .hamburger-menu {
@@ -155,7 +173,8 @@ nav a:hover {
 .mobile-menu ul li a {
   text-decoration: none;
   color: #0a4e37;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 /* Hero Section */
@@ -231,16 +250,6 @@ nav a:hover {
   padding: 40px 0;
 }
 
-.timeline::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  background-color: #06cd86;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -1px;
-}
 
 .container {
   padding: 20px;
@@ -432,7 +441,44 @@ p {
 
 /* hero section for all pages except index.html */
 
+/* Hero Section */
 .heroSection {
+  width: 100%; /* Make sure it spans full width */
+  padding: 6rem 2rem; /* Add padding for spacing */
+  background-image: url("image/services.png"); /* Set the background image */
+  background-size: cover; /* Ensure the image covers the whole section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 88vh; /* Set the height to full viewport height */
+  display: flex;
+  position: relative;
+}
+
+.heroSection_box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left */
+  max-width: 1200px;
+  text-align: left;
+  z-index: 1; /* Ensure the text stays on top of the background */
+}
+
+
+
+/* Optional: Add a dark overlay to improve text visibility */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  z-index: 0; /* Position the overlay behind the text */
+}
+
+
+/* .heroSection {
   width: 80%;
   margin: 3rem auto;
 }
@@ -442,17 +488,18 @@ p {
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
 }
-
+  /*  */
 .heroSection_box_left {
-  /* padding-right: 6rem; */
-  margin-left: -3rem;
+  
+  margin-left: 1rem;
   padding-top: 9rem;
 }
+
 
 .heroSection_box_left p {
   font-size: 20px;
   font-weight: 600;
-  color: #0a4e37;
+  color: #06cd86;
   text-transform: uppercase;
 }
 
@@ -463,10 +510,7 @@ p {
   color: #179266;
 }
 
-.heroSection_box_right img {
-  width: 470px;
-  height: auto;
-}
+
 
 /* timeline in services section */
 
@@ -491,10 +535,10 @@ p {
 .services-list ul li {
   list-style: none;
   margin: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #0a4e37;
   line-height: 0.6;
-  font-weight: bold;
+  
 }
 /*  */
 
@@ -509,6 +553,17 @@ p {
   gap: 5rem;
 }
 
+.value-question {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between; /* Align the text and the sign */
+  align-items: center; /* Center vertically */
+}
+
+.toggle-sign {
+  margin-left: 10px;
+  font-weight: bold;
+}
 /* .value-right {
   padding-right: 6rem;
 } */
@@ -537,6 +592,11 @@ p {
   height: auto;
 }
 
+.value-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
 .services {
   position: relative;
   width: 80%;
@@ -551,7 +611,7 @@ p {
   position: relative;
   width: 50%;
   padding: 10px;
-  margin-bottom: 8rem;
+  margin-bottom: 4rem;
 }
 
 .services-item.left {
@@ -761,6 +821,9 @@ p {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  header{
+    background-color: white;
+  }
   #logo {
     max-height: 5rem;
   }
@@ -779,6 +842,11 @@ p {
   .mobile-menu ul li a {
     font-weight: 500;
   }
+  .mobile-menu a:hover {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
 
   /* hero */
 
@@ -793,20 +861,22 @@ p {
   }
 /* timeline on homepage */
 
+
   .timeline::after {
    display: none;
   }
 
   /* about us */
 
-  
-
   .container {
-    width: 100%;
+    width: 100%; /* Full width for mobile view */
+      margin: 10px 0;
+      padding: 10px;
+    /* width: 100%;
     flex-direction: column;
     text-align: center;
-    margin: 20px 0; /* Adjust margin for better spacing */
-    position: relative; /* Ensure correct positioning of child elements */
+    margin: 20px 0; 
+    position: relative;  */
   }
 
   .content {
@@ -846,7 +916,7 @@ p {
   /* hero sectiion for all - index */
 
   .heroSection {
-    width: 80%;
+    width: 100%;
   }
 
   .heroSection_box {
@@ -866,7 +936,7 @@ p {
 
   .heroSection_box_left {
     margin-left: 0rem;
-    margin-top: -11rem;
+    margin-top: -4rem;
   }
 
   .heroSection_box_left h1 {
@@ -880,7 +950,7 @@ p {
     /* line-height: 1.1; */
     font-size: 1rem;
     font-style: bold;
-    text-align: center;
+    text-align: left;
   }
 
   /* team */
@@ -890,6 +960,7 @@ p {
   }
 
   .team_box_left {
+    margin-left: 0;
     padding-right: 0; /* Remove right padding in responsive view */
     order: 1; /* Make sure the text comes first */
     margin-bottom: 2rem; /* Add some space below the text */
@@ -988,10 +1059,15 @@ p {
     transform: translateY(0); /* No transformation */
   }
 
-  .services-item.left,
-  .services-item.right {
-    left: 0; /* Remove floating left/right alignment */
+  .services-item.left
+  {
+    left: 0; 
     text-align: center;
+  }
+
+  .services-item.right{
+    text-align: center;
+    left: 0;
   }
 
   .services-item::before {
@@ -1044,7 +1120,16 @@ p {
     cursor: pointer;
     font-weight: bold;
     color: #333;
+      display: flex;
+      justify-content: space-between; /* Align the text and the sign */
+      align-items: center; /* Center vertically */
+
   }
+
+  .toggle-sign {
+    margin-left: 10px; /* Space between text and sign */
+    font-weight: bold;
+}
 
   .value-answer {
     display: none; /* Hide answers by default */

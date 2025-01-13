@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Loader Styles */
+        #loader {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        /* Image loader */
+        .loader-image {
+          width: 150px; /* Adjust the size of the image */
+          height: auto;
+          animation: blink 1.5s infinite; /* Blinking animation */
+        }
+
+        /* Blinking animation */
+        @keyframes blink {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        /* Zoom-in animation for logo */
+        .logo-container {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 10000; /* Ensure it appears above the loader */
+          display: none;
+          /* Initially hide the logo container */
+        }
+
+        .logo {
+          width: 150px; /* Adjust the size of the image */
+          height: auto;
+          animation: zoomIn 1.5s ease-in-out; /* Zoom-in animation */
+        }
+
+        /* Zoom-in animation */
+        @keyframes zoomIn {
+          0% {
+            transform: scale(0);
+            opacity: 0;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+       
+        <img src="your-image-path.jpg" alt="Loading..." class="loader-image" />
+    </div>
+
+    <!-- Logo container -->
+    <div class="logo-container" id="logo-container">
+        <img src="your-logo-path.png" alt="Logo" class="logo" />
+    </div>
+
+   
+
+    <script>
+        // Display the loading screen for 3 seconds
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                document.getElementById("loader").style.display = "none"; // Hide loader
+                document.getElementById("logo-container").style.display = "block"; // Show logo
+                 // Show logo for 3 seconds
+            }, 3000); // 3 seconds delay for loader
+        });
+    </script>
+</body>
+</html>
