@@ -1,0 +1,1210 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+/* loader screen */
+
+#loader {
+  position: fixed;
+  top: -1rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image loader */
+.loader-image {
+  width: 100px; /* Adjust the size of the image */
+  height: auto;
+
+  animation: blink 1.5s infinite; /* Blinking animation */
+}
+
+/* Blinking animation */
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.navbar{
+  box-shadow: rgba(0, 0, 0, 0.3);
+}
+/* header starts */
+header{
+  position: fixed;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#logo {
+  max-height: 6rem;
+  position: fixed;
+  top: 0;
+  background: transparent;
+}
+
+header a {
+  text-decoration: none;
+}
+
+  .nav-menu {
+    position: fixed; 
+    z-index: 100; /* Ensure it's above other elements */
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+
+    right: 0;
+    z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul a {
+  color: #0a4e37;
+  font-weight: 500;
+}
+
+nav ul li {
+  margin-right: 1.5rem;
+  font-size: 19px;
+  text-transform: uppercase;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 200;
+}
+
+nav a:hover {
+  color: #06cd86;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-link.active {
+  color: orange; /* Change this to your desired active color */
+  font-weight: bold; /* Optional: Make the active link bold */
+}
+
+
+/* Hamburger menu styles */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.hamburger-menu .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #0a4e37;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+#close-menu {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  color: #0a4e37;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #06cd86;
+  box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  transform: translateX(100%);
+}
+
+.mobile-menu.show {
+  display: block;
+  transform: translateX(0);
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.mobile-menu ul li {
+  margin-bottom: 20px;
+}
+
+.mobile-menu ul li a {
+  text-decoration: none;
+  color: #0a4e37;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.hero-image {
+  margin-top: -2rem;
+  width: 60%; /* Default width for larger screens */
+  max-width: 550px; /* Maximum width for the image */
+  height: auto;
+  animation: zoomIn 3s ease-in-out;
+}
+
+.center-text {
+  margin-top: -4rem;
+  font-size: 1.5rem; /* Larger font size for desktop */
+  color: #0a4e37; /* Dark green for better readability */
+  max-width: 80%; /* Max width to ensure text is readable */
+  transition: font-size 0.3s ease; /* Smooth transition for responsiveness */
+}
+
+/* about us */
+
+/* Keyframes for fade-in and slide-up */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation class */
+.fade-slide {
+  opacity: 0; /* Start with hidden */
+  transform: translateY(50px);
+  transition: opacity 0.9s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform; /* Hint for smoother animation */
+}
+
+/* When the element is visible, trigger animation */
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; /* Smooth easing */
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+
+.container {
+  padding: 20px;
+  position: relative;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.container.left {
+  left: 0;
+  flex-direction: row;
+}
+
+.container.right {
+  left: 50%;
+  margin-left: -6rem;
+  flex-direction: row-reverse;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.content img {
+  width: 26rem;
+  height: auto;
+  border-radius: 5px;
+  margin-left: 6rem;
+  will-change: transform, opacity; /* Hint for smoother animation */
+}
+
+.text-box {
+  padding: 20px;
+  border-radius: 5px;
+  width: 30rem;
+  height: auto;
+  margin-left: 13rem;
+}
+
+.container.right .text-box {
+  margin-left: 0;
+  margin-right: 5rem;
+}
+
+h3 {
+  color: #179266;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+/* Reduce gap between containers */
+.timeline .container {
+  margin-bottom: -3rem;
+}
+
+/* team */
+
+.team {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.team_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.team_box_left {
+  margin-left: -3rem;
+}
+
+.team_box_left h1 {
+  font-size: 3rem;
+  line-height: 0.9;
+  font-weight: 500;
+  color: #179266;
+}
+
+.team_box_left p {
+  font-size: 24px;
+  color: #0a4e37;
+}
+
+.team_box_right img {
+  width: 470px;
+  height: auto;
+}
+
+/* footer */
+
+.footer {
+  background-color: #0a4e37; /* Deep blue background for a professional look */
+  color: #ffffff; /* White text for contrast */
+  padding: 3rem 0;
+  font-size: 1rem;
+  border-top: 2px solid #06cd86; /* Green accent line at the top */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 2rem;
+}
+
+.footer-logo img {
+  max-height: 60px; /* Slightly larger logo for better visibility */
+}
+
+.footer-links,
+.footer-contact {
+  flex: 1;
+  margin: 0 1rem;
+}
+
+.footer-links h3,
+.footer-contact h3{
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600; /* Bolder headings for better emphasis */
+  color: #06cd86; /* Green color for headings */
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.75rem; /* Increased spacing for better readability */
+}
+
+.footer-links ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.footer-links ul li a:hover, .footer-bottom a:hover {
+  color: #06cd86; /* Green color on hover for a modern look */
+}
+
+.footer-contact p {
+  margin-bottom: 1rem;
+  line-height: 1.5; /* Improved readability */
+}
+
+.footer-contact a {
+  color: #06cd86;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.footer-bottom a {
+  text-decoration: none;
+  margin: 0;
+  color: white;
+}
+
+/* New footer credit section */
+.credit {
+  text-align: left;
+  padding: 1rem 0;
+  color: pink;
+  font-size: 1rem;
+  margin-top: -1rem;
+}
+
+.credit a {
+  text-decoration: none;
+  color: pink;
+}
+
+/* hero section for all pages except index.html */
+
+/* Hero Section */
+.heroSection {
+  width: 100%; /* Make sure it spans full width */
+  padding: 6rem 2rem; /* Add padding for spacing */
+  background-image: url("image/services.png"); /* Set the background image */
+  background-size: cover; /* Ensure the image covers the whole section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  height: 88vh; /* Set the height to full viewport height */
+  display: flex;
+  position: relative;
+}
+
+.heroSection_box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left */
+  max-width: 1200px;
+  text-align: left;
+  z-index: 1; /* Ensure the text stays on top of the background */
+}
+
+
+
+/* Optional: Add a dark overlay to improve text visibility */
+.heroSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black overlay */
+  z-index: 0; /* Position the overlay behind the text */
+}
+
+
+/* .heroSection {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.heroSection_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+  /*  */
+.heroSection_box_left {
+  
+  margin-left: 1rem;
+  padding-top: 9rem;
+}
+
+
+.heroSection_box_left p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #06cd86;
+  text-transform: uppercase;
+}
+
+.heroSection_box_left h1 {
+  font-size: 3rem;
+  line-height: 0.9;
+  font-weight: 500;
+  color: #179266;
+}
+
+
+
+/* timeline in services section */
+
+.service-intro p {
+  font-size: 18px;
+  color: #0a4e37;
+  margin: 6rem;
+  text-align: center;
+}
+
+.services-list {
+  text-align: center;
+}
+
+.services-list h2 {
+  font-size: 1.8rem;
+  color: #06cd86;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.services-list ul li {
+  list-style: none;
+  margin: 2rem;
+  font-size: 1.3rem;
+  color: #0a4e37;
+  line-height: 0.6;
+  
+}
+/*  */
+
+.value-section {
+  width: 80%;
+  margin: 9rem auto -1rem auto;
+}
+
+.value-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+}
+
+.value-question {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between; /* Align the text and the sign */
+  align-items: center; /* Center vertically */
+}
+
+.toggle-sign {
+  margin-left: 10px;
+  font-weight: bold;
+}
+/* .value-right {
+  padding-right: 6rem;
+} */
+
+.value-right h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #179266;
+}
+
+.value-right p {
+  font-size: 18px;
+  color: #0a4e37;
+  margin-top: 1rem;
+  line-height: 1.3;
+}
+
+.value-right h3 {
+  font-size: 24px;
+  color: #06cd86;
+  font-weight: 400;
+}
+
+.value-left img {
+  width: 100%;
+  height: auto;
+}
+
+.value-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.services {
+  position: relative;
+  width: 80%;
+  margin: 50px auto;
+  padding: 20px 0;
+}
+
+.services-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-in-out;
+  position: relative;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 4rem;
+}
+
+.services-item.left {
+  left: -5%;
+  text-align: left;
+}
+
+.services-item.right {
+  left: 55%;
+  text-align: left;
+}
+
+.services::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #06cd86;
+}
+
+.services-item h1 {
+  color: #0a4e37;
+  font-size: 5rem;
+  font-weight: 500;
+}
+
+.services-item h3 {
+  color: #0a4e37;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.services-item p {
+  color: #179266;
+  font-size: 18px;
+}
+
+.services-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* team intro */
+
+.team-intro h1 {
+  font-size: 2.6rem;
+  line-height: 0.9;
+  font-weight: 500;
+  color: #0a4e37;
+  text-align: center;
+}
+.team-intro {
+  text-align: center; /* Center align text */
+  margin: 20px 0;
+}
+
+.expert-container {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center align items */
+}
+
+.expert-image {
+  width: 250px; /* Set a width for the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make it circular */
+  margin-bottom: 15px; /* Space between image and text */
+}
+.expert-info h2 {
+  font-size: 1.8rem;
+  color: #179266;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.expert-info p {
+  font-size: 1.3rem;
+  color: #0a4e37;
+  text-align: center;
+  margin-top: 0rem;
+}
+
+.view-profile {
+  color: #06cd86; /* White text */
+  cursor: pointer; /* Pointer cursor */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.view-profile-button {
+  color: #179266;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  background: none;
+  border: none;
+}
+
+/* Add hover effect */
+.view-profile-button:hover {
+  color: #0a4e37;
+}
+
+.close {
+  color: #aaa;
+  float: right; /* Align to the right */
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer; /* Change cursor to pointer */
+  margin-top: 10px; /* Add some space from the top */
+  margin-right: 10px; /* Add some space from the right */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto; /* Center the modal */
+  padding: 20px; /* Padding inside the modal */
+  border: 1px solid #888;
+  width: 90%; /* Width of the modal */
+  position: relative; /* Make sure positioning is relative to the modal */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust to center vertically */
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Space between the columns */
+}
+
+.modal-left {
+  padding: 10px; /* Optional padding */
+  border-right: 1px solid #ddd; /* Optional right border */
+  text-align: center; /* Center align text */
+}
+
+.modal-right {
+  padding: 10px; /* Optional padding */
+  text-align: left;
+}
+
+/* careers list */
+
+.needs-list {
+  text-align: center;
+}
+
+.needs-list h2 {
+  font-size: 1.8rem;
+  color: #06cd86;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.needs-list ul li {
+  list-style: none;
+  margin: 2rem;
+  font-size: 1rem;
+  color: #0a4e37;
+  line-height: 0.6;
+}
+
+/* careers benefits */
+
+.careers-section {
+  margin: 7rem;
+}
+
+.careers-container {
+  display: flex;
+  justify-content: space-between; 
+  gap: 4rem;
+}
+
+.careers-left,
+.careers-right {
+  width: 40%; /* Make sure the left and right columns take 48% of the width each */
+}
+
+.careers-left h2 {
+  font-size: 2rem;
+  color: #179266;
+  font-weight: 400;
+}
+
+.careers-right ul li {
+  font-size: 18px;
+  list-style: none;
+  line-height: 2;
+  color: #0a4e37;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header{
+    background-color: white;
+  }
+  #logo {
+    max-height: 5rem;
+  }
+
+  .nav-menu {
+    display: none; /* Hide the default menu on mobile */
+  }
+
+  #hamburger-menu {
+    display: block;
+  }
+
+  nav ul {
+    display: none; /* Hide normal navbar items */
+  }
+  .mobile-menu ul li a {
+    font-weight: 500;
+  }
+  .mobile-menu a:hover {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  /* hero */
+
+  .hero-image {
+    width: 107%;
+    margin-top: -2rem;
+  }
+
+  .center-text {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    margin-top: -3rem;
+  }
+/* timeline on homepage */
+
+
+  .timeline::after {
+   display: none;
+  }
+
+  /* about us */
+
+  .container {
+    width: 100%; /* Full width for mobile view */
+      margin: 10px 0;
+      padding: 10px;
+    /* width: 100%;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px 0; 
+    position: relative;  */
+  }
+
+  .content {
+    flex-direction: column; /* Stack images and texts vertically */
+    align-items: center; /* Center align content */
+    transition: none; /* Remove any transitions */
+  }
+
+  .content img {
+    width: 100%; /* Full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 0 20px 0; /* Space between image and text */
+    display: block;
+  }
+
+  .text-box {
+    width: 100%; /* Full width of the container */
+    margin: 0; /* Remove margins */
+    padding: 20px; /* Ensure padding for content */
+    transition: none;
+  }
+  .container.right {
+    margin-left: -11rem;
+  }
+
+  .container.right .text-box {
+    margin-right: 0;
+    bottom: 11rem;
+  }
+
+  /* Ensure no animations are applied in responsive view */
+  .fade-slide {
+    animation: none;
+    opacity: 1; /* Ensure elements are visible without animation */
+    transform: translateY(0); /* Ensure elements are not shifted */
+  }
+  /* hero sectiion for all - index */
+
+  .heroSection {
+    width: 100%;
+  }
+
+  .heroSection_box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .heroSection_box_right {
+    text-align: center;
+  }
+
+  .heroSection_box_right img {
+    margin-top: -2rem;
+    width: 90%;
+    height: auto;
+  }
+
+  .heroSection_box_left {
+    margin-left: 0rem;
+    margin-top: -4rem;
+  }
+
+  .heroSection_box_left h1 {
+    font-size: 2rem;
+    line-height: 1;
+    text-align: left;
+  }
+
+  .heroSection_box_left p,
+  .value-right p {
+    /* line-height: 1.1; */
+    font-size: 1rem;
+    font-style: bold;
+    text-align: left;
+  }
+
+  /* team */
+  .team_box {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+  }
+
+  .team_box_left {
+    margin-left: 0;
+    padding-right: 0; /* Remove right padding in responsive view */
+    order: 1; /* Make sure the text comes first */
+    margin-bottom: 2rem; /* Add some space below the text */
+  }
+
+  .team_box_left h1 {
+    font-size: 2rem;
+    line-height: 1;
+    text-align: left;
+  }
+
+  .team_box_left p {
+    font-size: 19px;
+  }
+
+  .team_box_right {
+    order: 2; /* Image comes after the text */
+    text-align: center; /* Center align image in smaller screens */
+  }
+
+  .team_box_right img {
+    width: 100%; /* Make sure image is responsive */
+    height: auto;
+  }
+
+  /* modal */
+
+  .modal-content {
+    width: 90%; /* Full width on smaller screens */
+    padding: 15px; /* Less padding on mobile */
+  }
+
+  .modal-left,
+  .modal-right {
+    flex-basis: 100%; /* Stack columns vertically on small screens */
+  }
+
+  .modal-left h2 {
+    font-size: 1.8rem; /* Smaller font size for headings */
+  }
+
+  .modal-right p {
+    font-size: 14px; /* Smaller font size for paragraph */
+  }
+
+  .view-profile-button {
+    width: 100%; /* Full width for the button */
+  }
+
+  /* Remove the grid layout on mobile */
+  .modal-grid {
+    display: block; /* Stack items vertically */
+  }
+
+  .modal-left,
+  .modal-right {
+    margin-bottom: 20px; /* Space between sections */
+  }
+
+  /* timeline for services */
+  .service-intro p {
+    text-align: left;
+    margin: 1.6rem;
+    font-size: 14px;
+  }
+
+  .services-list h2 {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .services-list ul {
+    padding-left: 0;
+  }
+
+  .services-list ul li {
+    line-height: 1.2;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .services {
+    width: 90%; /* Increase width on smaller screens */
+  }
+
+  .services-item {
+    width: 100%; /* Full width for mobile */
+    opacity: 0; /* Ensure items are visible */
+    transform: translateY(50); /* Reset the position */
+    margin-bottom: 2rem; /* Adjust spacing for mobile */
+  }
+
+  /* Disable animation in mobile view */
+  .services-item.show {
+    opacity: 1; /* Ensure items remain visible */
+    transform: translateY(0); /* No transformation */
+  }
+
+  .services-item.left
+  {
+    left: 0; 
+    text-align: center;
+  }
+
+  .services-item.right{
+    text-align: center;
+    left: 0;
+  }
+
+  .services-item::before {
+    display: none;
+  }
+
+  .services::before {
+    display: none;
+  }
+
+  /* value section in service page */
+  .value-section {
+    margin-top: 5rem;
+  }
+
+  .value-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .value-left img {
+    width: 90%;
+    height: auto;
+    padding-left: 2rem;
+  }
+
+  .value-container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+  }
+
+  .value-right {
+    width: 100%; /* Make sure this takes the full width */
+  }
+
+  .value-right h2 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .value-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+
+  .value-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+  }
+
+  .value-question {
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+      display: flex;
+      justify-content: space-between; /* Align the text and the sign */
+      align-items: center; /* Center vertically */
+
+  }
+
+  .toggle-sign {
+    margin-left: 10px; /* Space between text and sign */
+    font-weight: bold;
+}
+
+  .value-answer {
+    display: none; /* Hide answers by default */
+  }
+
+  /* Show answer when active */
+  .value-item.active .value-answer {
+    display: block; /* Show answer when the item is active */
+  }
+
+/* careers need */
+
+.needs-list h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.needs-list ul {
+  padding-left: 0;
+}
+
+.needs-list ul li {
+  line-height: 1.2;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* careers benefit */
+
+.careers-section{
+  margin: 3rem;
+}
+
+.careers-container {
+  flex-direction: column; /* Stack sections vertically */
+}
+
+.careers-left,
+.careers-right {
+  width: 100%; /* Full width for each section */
+  margin-bottom: 1.5rem; /* Add space between sections */
+}
+
+.careers-left h2 {
+  font-size: 1.5rem; /* Slightly smaller font size for headings */
+}
+
+.careers-right ul{
+  margin-top: -4rem;
+  margin-left: -3rem;
+}
+
+.careers-right ul li {
+  font-size: 16px; 
+  line-height: 2;
+ text-align: center;
+}
+
+  /* footer */
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+
+  .footer-links,
+  .footer-contact {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .footer-links h3,
+  .footer-contact h3 {
+    margin-top: -1rem;
+    font-weight: lighter;
+  }
+}
